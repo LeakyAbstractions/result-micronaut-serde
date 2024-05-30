@@ -1,0 +1,4 @@
+No serializable introspection present for type Success.
+ Consider adding Serdeable. Serializable annotate to type Success.
+ Alternatively if you are not in control of the project's source code,
+ you can use @SerdeImport(Success.class) to enable serialization of this type.

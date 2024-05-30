@@ -1,0 +1,4 @@
+
+rootProject.name = 'result-micronaut-serde-root'
+include('result-micronaut-serde')
+include('api-compatibility')

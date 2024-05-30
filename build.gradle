@@ -1,0 +1,23 @@
+
+plugins {
+    alias libs.plugins.micronaut.library apply false
+    alias libs.plugins.micronaut.aot apply false
+    alias libs.plugins.spotless apply false
+    alias libs.plugins.sonarqube apply false
+    alias libs.plugins.japicmp apply false
+    alias libs.plugins.nexus.publish
+}
+
+// Configure Gradle Nexus Publish Plugin publishing repository
+if (project.hasProperty('sonatypeUsername') && project.hasProperty('sonatypePassword')) {
+    nexusPublishing {
+        useStaging = !project.version.endsWith('-SNAPSHOT') && project.hasProperty('release')
+        repositories {
+            sonatype {
+                username = project.sonatypeUsername
+                password = project.sonatypePassword
+                stagingProfileId = project.findProperty('sonatypeStagingProfileId')
+            }
+        }
+    }
+}
