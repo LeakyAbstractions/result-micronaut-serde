@@ -1,0 +1,4 @@
+No bean introspection available for type
+ [interface com.leakyabstractions.result.api.Result].
+ Ensure the class is annotated with
+ io.micronaut.core.annotation.Introspected
