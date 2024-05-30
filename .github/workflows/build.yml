@@ -1,0 +1,140 @@
+
+# Continuous Integration
+name: Build
+
+on:
+  push:
+    branches:
+    - '*'
+  pull_request:
+    branches:
+    - main
+    - develop
+
+jobs:
+  build:
+
+    name: Build on JDK${{ matrix.jdk }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        jdk: [ 17, 21 ]
+
+    env:
+      is_latest_jdk:  ${{ matrix.jdk == 21                                          && 'yes' || '' }}
+      is_main:        ${{ github.ref_name == github.event.repository.default_branch && 'yes' || '' }}
+      is_develop:     ${{ github.ref_name == 'develop'                              && 'yes' || '' }}
+      is_fork:        ${{ github.event_name == 'pull_request'                       && 'yes' || '' }}
+
+    steps:
+
+    # ================================
+    # SHALLOW CLONE
+    # ================================
+    - name: Shallow clone
+      if: ${{ !env.is_latest_jdk || env.is_fork }}
+      uses: actions/checkout@v4
+
+    # ================================
+    # CHECKOUT
+    # ================================
+    - name: Checkout git branch
+      if: ${{ env.is_latest_jdk && !env.is_fork }}
+      uses: actions/checkout@v4
+      with:
+        # Fetch all history for all tags and branches (recommended by SonarQube)
+        fetch-depth: 0
+
+    # ================================
+    # VALIDATE GRADLE WRAPPER
+    # ================================
+    - name: Validate Gradle Wrapper files
+      if: ${{ env.is_latest_jdk }}
+      uses: gradle/actions/wrapper-validation@v3
+
+    # ================================
+    # SET UP JDK
+    # ================================
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-package: jdk
+        java-version: ${{ matrix.jdk }}
+
+    # ================================
+    # SET UP GRADLE
+    # ================================
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        build-scan-publish: true
+        build-scan-terms-of-use-url: "https://gradle.com/help/legal-terms-of-use"
+        build-scan-terms-of-use-agree: "yes"
+        cache-read-only: ${{ !env.is_main && !env.is_develop }}
+
+    # ================================
+    # EXPORT GRADLE PROPERTIES
+    # ================================
+    - name: Export Gradle properties
+      id: properties
+      uses: guillermocalvo/gradle-properties@v3
+      with:
+        output_file: ${{ github.output }}
+        export: version,previousVersion
+
+    # ================================
+    # BUILD
+    # ================================
+    - name: Build version ${{ steps.properties.outputs.version }}
+      run: ./gradlew build -x check
+
+    # ================================
+    # CHECK
+    # ================================
+    - name: Check
+      run: ./gradlew check
+
+    # ================================
+    # COMPATIBILITY REPORT
+    # ================================
+    - name: Compatibility with version ${{ steps.properties.outputs.previousVersion }}
+      if: ${{ matrix.jdk == 21 }}
+      run: cat ./api-compatibility/build/report.txt >> $GITHUB_STEP_SUMMARY
+
+    # ================================
+    # CACHE SONARCLOUD PACKAGES
+    # ================================
+    - name: Cache SonarCloud packages
+      if: ${{ env.is_latest_jdk && !env.is_fork }}
+      uses: actions/cache@v4
+      with:
+        key: ${{ runner.os }}-sonar
+        path: |
+          ~/.sonar/cache
+        restore-keys: |
+          ${{ runner.os }}-sonar
+
+    # ================================
+    # ANALYZE WITH SONARCLOUD
+    # ================================
+    - name: Analyze with SonarCloud
+      if: ${{ env.is_latest_jdk && !env.is_fork }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: https://sonarcloud.io
+        SONAR_ORGANIZATION: leakyabstractions
+      run: ./gradlew sonar
+
+    # ================================
+    # PUBLISH SNAPSHOT
+    # ================================
+    - name: Publish snapshot version ${{ steps.properties.outputs.version }}
+      if: ${{ env.is_latest_jdk && !env.is_fork && env.is_main && endsWith(steps.properties.outputs.version, '-SNAPSHOT') }}
+      env:
+        ORG_GRADLE_PROJECT_githubUsername: ${{ secrets.PUBLISH_USERNAME }}
+        ORG_GRADLE_PROJECT_githubPassword: ${{ secrets.PUBLISH_PASSWORD }}
+        ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
+        ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
+      run: ./gradlew publish -Psnapshot
