@@ -16,12 +16,13 @@
 
 package com.leakyabstractions.result.micronaut.serde;
 
-import static com.leakyabstractions.result.assertj.ResultAssertions.assertThat;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.FAILURE_NAME;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.SUCCESS_NAME;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.failureOf;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.resultOf;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.successOf;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.OPTIONAL;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -62,7 +63,7 @@ class ResultDeserializerTest {
         // When
         final Result<String, Integer> result = mapper.readValue(json, resultOf(String.class, Integer.class));
         // Then
-        assertThat(result).hasSuccess("SUCCESS");
+        assertThat(result).extracting("success", OPTIONAL).contains("SUCCESS");
     }
 
     @Test
@@ -73,7 +74,8 @@ class ResultDeserializerTest {
         final Result<?, ?> result = mapper.readValue(json, Result.class);
         // Then
         assertThat(result)
-                .hasSuccessSatisfying(
+                .extracting("success", OPTIONAL)
+                .hasValueSatisfying(
                         x -> {
                             assertThat(x).hasFieldOrPropertyWithValue("x", "SUCCESS");
                             assertThat(x).hasFieldOrPropertyWithValue("y", 123);
@@ -87,7 +89,7 @@ class ResultDeserializerTest {
         // When
         final Result<String, Integer> result = mapper.readValue(json, resultOf(String.class, Integer.class));
         // Then
-        assertThat(result).hasFailure(404);
+        assertThat(result).extracting("failure", OPTIONAL).contains(404);
     }
 
     @Test
@@ -117,7 +119,7 @@ class ResultDeserializerTest {
         // When
         final Result<String, Integer> result = mapper.readValue(json, resultOf(String.class, Integer.class));
         // Then
-        assertThat(result).hasFailure(321);
+        assertThat(result).extracting("failure", OPTIONAL).contains(321);
     }
 
     @Test
@@ -150,7 +152,8 @@ class ResultDeserializerTest {
         final Result<Foobar<List<Integer>>, ?> result = mapper.readValue(json, arg);
         // Then
         assertThat(result)
-                .hasSuccessSatisfying(
+                .extracting("success", OPTIONAL)
+                .hasValueSatisfying(
                         s -> assertThat(s)
                                 .hasFieldOrPropertyWithValue("foo", List.of(1, 2, 3))
                                 .hasFieldOrPropertyWithValue("bar", true));
@@ -166,7 +169,8 @@ class ResultDeserializerTest {
         final Result<Integer, Foobar<Long>> result = mapper.readValue(json, arg);
         // Then
         assertThat(result)
-                .hasFailureSatisfying(
+                .extracting("failure", OPTIONAL)
+                .hasValueSatisfying(
                         f -> assertThat(f)
                                 .hasFieldOrPropertyWithValue("foo", 404L)
                                 .hasFieldOrPropertyWithValue("bar", null));
@@ -205,7 +209,7 @@ class ResultDeserializerTest {
         // When
         final Result<Foobar<BigDecimal>, Long> result = mapper.readValue(json, arg);
         // Then
-        assertThat(result).hasFailure(321L);
+        assertThat(result).extracting("failure", OPTIONAL).contains(321L);
     }
 
     @SuppressWarnings("unchecked")

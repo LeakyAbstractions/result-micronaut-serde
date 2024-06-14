@@ -16,12 +16,12 @@
 
 package com.leakyabstractions.result.micronaut.serde;
 
-import static com.leakyabstractions.result.assertj.ResultAssertions.assertThat;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.FAILURE_NAME;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.SUCCESS_NAME;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.failureOf;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.resultOf;
 import static com.leakyabstractions.result.micronaut.serde.ResultArgument.successOf;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import java.util.Map;
