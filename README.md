@@ -104,6 +104,6 @@ See the License for the specific language governing permissions and limitations 
 [LATEST_RELEASE]:               https://github.com/leakyabstractions/result-micronaut-serde/releases/latest/
 [PRAGVER]:                      https://pragver.github.io/
 [QUALITY_GATE]:                 https://sonarcloud.io/dashboard?id=LeakyAbstractions_result-micronaut-serde
-[QUICK_GUIDE]:                  https://dev.leakyabstractions.com/result-micronaut-serde/
-[RESULT]:                       https://dev.leakyabstractions.com/result/
+[QUICK_GUIDE]:                  https://result.leakyabstractions.com/add-ons/micronaut
+[RESULT]:                       https://result.leakyabstractions.com/
 [SUPPORT]:                      https://github.com/LeakyAbstractions/.github/blob/main/SUPPORT.md
