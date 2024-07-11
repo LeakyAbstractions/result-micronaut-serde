@@ -95,8 +95,8 @@ See the License for the specific language governing permissions and limitations 
 [BADGE_QUALITY_GATE]:           https://sonarcloud.io/api/project_badges/measure?project=LeakyAbstractions_result-micronaut-serde&metric=alert_status
 [BUILD_STATUS]:                 https://github.com/LeakyAbstractions/result-micronaut-serde/actions?query=workflow%3ABuild
 [CODE_COVERAGE]:                https://sonarcloud.io/component_measures?id=LeakyAbstractions_result-micronaut-serde&metric=coverage&view=list
-[CODE_OF_CONDUCT]:              https://dev.leakyabstractions.com/result/CODE_OF_CONDUCT.html
-[CONTRIBUTING]:                 https://dev.leakyabstractions.com/result/CONTRIBUTING.html
+[CODE_OF_CONDUCT]:              https://github.com/LeakyAbstractions/.github/blob/main/CODE_OF_CONDUCT.md
+[CONTRIBUTING]:                 https://github.com/LeakyAbstractions/.github/blob/main/CONTRIBUTING.md
 [GUILLERMO]:                    https://guillermo.dev/
 [GUILLERMO_IMAGE]:              https://guillermo.dev/assets/images/thumb.png
 [MICRONAUT_SERDE]:              https://micronaut-projects.github.io/micronaut-serialization/latest/guide/
@@ -104,6 +104,6 @@ See the License for the specific language governing permissions and limitations 
 [LATEST_RELEASE]:               https://github.com/leakyabstractions/result-micronaut-serde/releases/latest/
 [PRAGVER]:                      https://pragver.github.io/
 [QUALITY_GATE]:                 https://sonarcloud.io/dashboard?id=LeakyAbstractions_result-micronaut-serde
-[QUICK_GUIDE]:                  https://dev.leakyabstractions.com/result-micronaut-serde/
-[RESULT]:                       https://dev.leakyabstractions.com/result/
-[SUPPORT]:                      https://dev.leakyabstractions.com/result/SUPPORT.html
+[QUICK_GUIDE]:                  https://result.leakyabstractions.com/add-ons/micronaut
+[RESULT]:                       https://result.leakyabstractions.com/
+[SUPPORT]:                      https://github.com/LeakyAbstractions/.github/blob/main/SUPPORT.md

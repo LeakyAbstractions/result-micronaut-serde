@@ -32,7 +32,7 @@ import jakarta.inject.Singleton;
 /**
  * Deserializes {@link Result} objects.
  *
- * @author Guillermo Calvo
+ * @author <a href="https://guillermo.dev/">Guillermo Calvo</a>
  */
 @SerdeImport(value = Result.class, mixin = ResultDeserializer.ResultMixin.class)
 @Singleton

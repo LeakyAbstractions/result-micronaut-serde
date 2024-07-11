@@ -26,7 +26,7 @@ class ProblemTest {
 
 /** {% elsif include.test == "serialization_problem" %} Test serialization problem */
 @Test
-void serialization_problem(ObjectMapper objectMapper) {
+void testSerializationProblem(ObjectMapper objectMapper) {
   // Given
   ApiOperation op = new ApiOperation("setup", success("Perfect"));
   // Then
@@ -37,7 +37,7 @@ void serialization_problem(ObjectMapper objectMapper) {
 } // End{% endif %}{% if false %}
 
 @Test
-void serialization_error_message(ObjectMapper objectMapper) throws Exception {
+void testSerializationErrorMessage(ObjectMapper objectMapper) throws Exception {
   // Given
   ApiOperation op = new ApiOperation("setup", success("Perfect"));
   String expected;
@@ -53,7 +53,7 @@ void serialization_error_message(ObjectMapper objectMapper) throws Exception {
 
 /** {% elsif include.test == "deserialization_problem" %} Test deserialization problem */
 @Test
-void deserialization_problem(ObjectMapper objectMapper) {
+void testDeserializationProblem(ObjectMapper objectMapper) {
   // Given
   String json = """
       {"name":"renew","result":{"success":"OK"}}""";
@@ -69,7 +69,7 @@ void deserialization_problem(ObjectMapper objectMapper) {
 } // End{% endif %}{% if false %}
 
 @Test
-void deserialization_error_message(ObjectMapper objectMapper) throws Exception {
+void testDeserializationErrorMessage(ObjectMapper objectMapper) throws Exception {
   // Given
   String json = """
       {"name":"renew","result":{"success":"OK"}}""";

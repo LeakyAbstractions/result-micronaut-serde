@@ -25,7 +25,7 @@ import io.micronaut.core.type.Argument;
 /**
  * Creates arguments of {@link Result} type.
  *
- * @author Guillermo Calvo
+ * @author <a href="https://guillermo.dev/">Guillermo Calvo</a>
  */
 public class ResultArgument {
 

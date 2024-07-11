@@ -18,9 +18,9 @@ import java.io.IOException;
 @SuppressWarnings("java:S125")
 class SolutionTest {
 
-/** {% elsif include.test == "serialization_solution_successful_result" %} Test serialization solution with a successful result */
+/** {% elsif include.test == "serialize_successful_result" %} Test serialization solution with a successful result */
 @Test
-void serialization_solution_successful_result(ObjectMapper objectMapper)
+void serializeSuccessfulResult(ObjectMapper objectMapper)
     throws IOException {
   // Given
   ApiOperation op = new ApiOperation("clean", success("All good"));
@@ -31,9 +31,9 @@ void serialization_solution_successful_result(ObjectMapper objectMapper)
       {"name":"clean","result":{"success":"All good"}}""", json);
 } // End{% endif %}{% if false %}
 
-/** {% elsif include.test == "serialization_solution_failed_result" %} Test serialization problem with a failed result */
+/** {% elsif include.test == "serialize_failed_result" %} Test serialization problem with a failed result */
 @Test
-void serialization_solution_failed_result(ObjectMapper objectMapper)
+void serializeFailedResult(ObjectMapper objectMapper)
     throws IOException {
   // Given
   ApiOperation op = new ApiOperation("build", failure("Oops"));
@@ -44,9 +44,9 @@ void serialization_solution_failed_result(ObjectMapper objectMapper)
       {"name":"build","result":{"failure":"Oops"}}""", json);
 } // End{% endif %}{% if false %}
 
-/** {% elsif include.test == "deserialization_solution_successful_result" %} Test deserialization solution with a successful result */
+/** {% elsif include.test == "deserialize_successful_result" %} Test deserialization solution with a successful result */
 @Test
-void deserialization_solution_successful_result(ObjectMapper objectMapper)
+void deserializeSuccessfulResult(ObjectMapper objectMapper)
     throws IOException {
   // Given
   String json = """
@@ -58,9 +58,9 @@ void deserialization_solution_successful_result(ObjectMapper objectMapper)
   assertEquals("Yay", response.result().orElse(null));
 } // End{% endif %}{% if false %}
 
-/** {% elsif include.test == "deserialization_solution_failed_result" %} Test deserialization solution with a failed result */
+/** {% elsif include.test == "deserialize_failed_result" %} Test deserialization solution with a failed result */
 @Test
-void deserialization_solution_failed_result(ObjectMapper objectMapper)
+void deserializeFailedResult(ObjectMapper objectMapper)
     throws IOException {
   // Given
   String json = """
