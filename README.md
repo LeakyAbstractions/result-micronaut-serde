@@ -3,8 +3,8 @@
 [![Quality Gate Status][BADGE_QUALITY_GATE]][QUALITY_GATE]
 [![Coverage][BADGE_CODE_COVERAGE]][CODE_COVERAGE]
 [![Maven Central][BADGE_ARTIFACTS]][ARTIFACTS]
-[![Latest Release][BADGE_LATEST_RELEASE]][LATEST_RELEASE]
 [![Javadoc][BADGE_JAVADOC]][JAVADOC]
+[![Free ebook][BADGE_GUIDE_BOOK]][GUIDE_BOOK]
 
 # Micronaut Serialization for Result
 
@@ -14,6 +14,8 @@ This library provides [Micronaut serialization support][MICRONAUT_SERDE] for [Re
 ## Getting Started
 
 Please read the [Quick Guide][QUICK_GUIDE] to know how to add this library to your build.
+
+Also available as an ebook in multiple formats. [Download your free copy now!][GUIDE_BOOK]
 
 
 ## Releases
@@ -87,21 +89,21 @@ See the License for the specific language governing permissions and limitations 
 
 [ARTIFACTS]:                    https://search.maven.org/artifact/com.leakyabstractions/result-micronaut-serde/
 [AUTHOR]:                       https://github.com/guillermocalvo/
-[BADGE_ARTIFACTS]:              https://img.shields.io/endpoint?url=https://dev.leakyabstractions.com/result-micronaut-serde/badge.json&logo=java&label=maven-central&labelColor=555
+[BADGE_ARTIFACTS]:              https://img.shields.io/maven-central/v/com.leakyabstractions/result-micronaut-serde
 [BADGE_BUILD_STATUS]:           https://github.com/leakyabstractions/result-micronaut-serde/workflows/Build/badge.svg
 [BADGE_CODE_COVERAGE]:          https://sonarcloud.io/api/project_badges/measure?project=LeakyAbstractions_result-micronaut-serde&metric=coverage
-[BADGE_JAVADOC]:                https://img.shields.io/endpoint?url=https://dev.leakyabstractions.com/result-micronaut-serde/badge.json&label=javadoc&color=blue
-[BADGE_LATEST_RELEASE]:         https://img.shields.io/github/release/leakyabstractions/result-micronaut-serde.svg?logo=github
+[BADGE_GUIDE_BOOK]:             https://img.shields.io/badge/Free_book-444?logo=leanpub
+[BADGE_JAVADOC]:                https://javadoc.io/badge2/com.leakyabstractions/result-micronaut-serde/javadoc.svg
 [BADGE_QUALITY_GATE]:           https://sonarcloud.io/api/project_badges/measure?project=LeakyAbstractions_result-micronaut-serde&metric=alert_status
 [BUILD_STATUS]:                 https://github.com/LeakyAbstractions/result-micronaut-serde/actions?query=workflow%3ABuild
 [CODE_COVERAGE]:                https://sonarcloud.io/component_measures?id=LeakyAbstractions_result-micronaut-serde&metric=coverage&view=list
 [CODE_OF_CONDUCT]:              https://github.com/LeakyAbstractions/.github/blob/main/CODE_OF_CONDUCT.md
 [CONTRIBUTING]:                 https://github.com/LeakyAbstractions/.github/blob/main/CONTRIBUTING.md
+[GUIDE_BOOK]:                   https://leanpub.com/result/
 [GUILLERMO]:                    https://guillermo.dev/
 [GUILLERMO_IMAGE]:              https://guillermo.dev/assets/images/thumb.png
-[MICRONAUT_SERDE]:              https://micronaut-projects.github.io/micronaut-serialization/latest/guide/
 [JAVADOC]:                      https://javadoc.io/doc/com.leakyabstractions/result-micronaut-serde/
-[LATEST_RELEASE]:               https://github.com/leakyabstractions/result-micronaut-serde/releases/latest/
+[MICRONAUT_SERDE]:              https://micronaut-projects.github.io/micronaut-serialization/latest/guide/
 [PRAGVER]:                      https://pragver.github.io/
 [QUALITY_GATE]:                 https://sonarcloud.io/dashboard?id=LeakyAbstractions_result-micronaut-serde
 [QUICK_GUIDE]:                  https://result.leakyabstractions.com/add-ons/micronaut
