@@ -9,7 +9,8 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 
 ## [Unreleased]
 
-No unreleased changes.
+- Bump **micronaut-aot** from 4.4.4 to 4.5.0.
+- Bump **micronaut-library** from 4.4.4 to 4.5.0.
 
 
 ## [1.0.0.2]
