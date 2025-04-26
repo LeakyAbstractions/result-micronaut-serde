@@ -1,15 +1,15 @@
 [versions]
+aot-micronaut = "4.5.3"
 assertj = "3.27.3"
 google-java-format = "1.19.2"
 jacoco = "0.8.10"
 japicmp = "0.4.6"
-junit = "5.12.1"
-micronaut-aot = "4.5.0"
-micronaut-library = "4.5.0"
+junit = "5.12.2"
+library-micronaut = "4.5.0"
 nexus-publish = "2.0.0"
 result-core = "1.0.0.0"
-sonarqube = "6.0.1.5171"
-spotless = "7.0.2"
+sonarqube = "6.1.0.5360"
+spotless = "7.0.3"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
@@ -23,8 +23,8 @@ test-runtime = [ "junit-jupiter-engine" ]
 
 [plugins]
 japicmp = { id = "me.champeau.gradle.japicmp", version.ref = "japicmp" }
-micronaut-aot = { id = "io.micronaut.aot", version.ref = "micronaut-aot" }
-micronaut-library = { id = "io.micronaut.library", version.ref = "micronaut-library" }
+micronaut-aot = { id = "io.micronaut.aot", version.ref = "aot-micronaut" }
+micronaut-library = { id = "io.micronaut.library", version.ref = "library-micronaut" }
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
