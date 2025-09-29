@@ -1,5 +1,5 @@
 [versions]
-aot-micronaut = "4.5.4"
+aot-micronaut = "4.5.5"
 assertj = "3.27.4"
 google-java-format = "1.28.0"
 jacoco = "0.8.10"
