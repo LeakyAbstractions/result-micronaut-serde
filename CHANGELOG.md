@@ -11,8 +11,8 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 
 ### Changed
 
-- Bump **micronaut-aot** from 4.5.0 to 4.6.0.
-- Bump **micronaut-library** from 4.5.0 to 4.6.0.
+- Bump **micronaut-aot** from 4.5.0 to 4.6.1.
+- Bump **micronaut-library** from 4.5.0 to 4.6.1.
 
 
 ## [1.0.1.0]
