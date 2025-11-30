@@ -15,6 +15,10 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 - Bump **micronaut-library** from 4.5.0 to 4.6.1.
 - Bump **result** from 1.0.0.0 to 1.0.1.0.
 
+### Added
+
+- Add module info `com.leakyabstractions.result.micronaut.serde`.
+
 
 ## [1.0.1.0]
 

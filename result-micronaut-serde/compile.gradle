@@ -8,7 +8,7 @@ java {
 // Configure java compiler
 tasks.withType(JavaCompile).all {
     options.compilerArgs.addAll([
-        '-Xlint:all,-processing',
+        '-Xlint:all,-processing,-requires-automatic,-requires-transitive-automatic',
         '-Werror'
     ])
     if (name != 'compileTestJava') {
