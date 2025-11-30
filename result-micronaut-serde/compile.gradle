@@ -1,14 +1,17 @@
 // Java toolchain
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
 // Configure java compiler
 tasks.withType(JavaCompile).all {
     options.compilerArgs.addAll([
-        '-Xlint:all,-processing',
+        '-Xlint:all,-processing,-requires-automatic,-requires-transitive-automatic',
         '-Werror'
     ])
+    if (name != 'compileTestJava') {
+        options.release = 17
+    }
 }

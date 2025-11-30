@@ -7,6 +7,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spec/1.0.0.0.html).
 
 
+## [Unreleased]
+
+### Changed
+
+- Bump **micronaut-aot** from 4.5.0 to 4.6.1.
+- Bump **micronaut-library** from 4.5.0 to 4.6.1.
+- Bump **result** from 1.0.0.0 to 1.0.1.0.
+
+### Added
+
+- Add module info `com.leakyabstractions.result.micronaut.serde`.
+
+
 ## [1.0.1.0]
 
 ### Changed
@@ -39,6 +52,7 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 - Class `com.leakyabstractions.result.micronaut.serde.ResultBuilder`.
 
 
+[Unreleased]: https://github.com/LeakyAbstractions/result-micronaut-serde/compare/main...develop
 [1.0.0.0]: https://github.com/LeakyAbstractions/result-micronaut-serde/releases/tag/1.0.0.0
 [1.0.0.1]: https://github.com/LeakyAbstractions/result-micronaut-serde/releases/tag/1.0.0.1
 [1.0.0.2]: https://github.com/LeakyAbstractions/result-micronaut-serde/releases/tag/1.0.0.2

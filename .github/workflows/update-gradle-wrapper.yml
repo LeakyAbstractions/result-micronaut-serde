@@ -19,17 +19,7 @@ jobs:
     # SHALLOW CLONE
     # ================================
     - name: Shallow clone
-      uses: actions/checkout@v4
-
-    # ================================
-    # SET UP JDK
-    # ================================
-    - name: Set up JDK
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'zulu'
-        java-package: jdk
-        java-version: 17
+      uses: actions/checkout@v6
 
     # ================================
     # UPDATE GRADLE WRAPPER
