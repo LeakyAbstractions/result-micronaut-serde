@@ -1,11 +1,11 @@
 [versions]
-aot-micronaut = "4.6.2"
+aot-micronaut = "5.0.0"
 assertj = "3.27.7"
 google-java-format = "1.35.0"
 jacoco = "0.8.14"
 japicmp = "0.4.6"
 junit = "6.1.0"
-library-micronaut = "4.6.2"
+library-micronaut = "5.0.0"
 nexus-publish = "2.0.0"
 result-core = "1.0.2.0"
 sonarqube = "7.3.0.8198"
