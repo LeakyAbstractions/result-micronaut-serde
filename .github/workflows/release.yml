@@ -18,7 +18,7 @@ jobs:
     # CHECKOUT
     # ================================
     - name: Checkout git tag
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     # ================================
     # SET UP JDK
@@ -34,7 +34,7 @@ jobs:
     # SET UP GRADLE
     # ================================
     - name: Set up Gradle
-      uses: gradle/actions/setup-gradle@v5
+      uses: gradle/actions/setup-gradle@v6
       with:
         build-scan-publish: true
         build-scan-terms-of-use-url: "https://gradle.com/help/legal-terms-of-use"
@@ -58,4 +58,4 @@ jobs:
     # CREATE RELEASE
     # ================================
     - name: Create Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
