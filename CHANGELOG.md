@@ -9,7 +9,10 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 
 ## [Unreleased]
 
-No unreleased changes.
+### Changed
+
+- Switch **micronaut-serde-api** from `implementation` to `compileOnly`.
+- Switch **micronaut-serde-jackson** from `implementation` to `testImplementation`.
 
 
 ## [1.1.0.0]

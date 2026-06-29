@@ -24,9 +24,9 @@ apply from: project.file('publish.gradle')
 
 dependencies {
     annotationProcessor "io.micronaut.serde:micronaut-serde-processor"
-    implementation("io.micronaut.serde:micronaut-serde-api")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    compileOnly("io.micronaut.serde:micronaut-serde-api")
     implementation libs.result.core
+    testImplementation("io.micronaut.serde:micronaut-serde-jackson")
     testImplementation("io.micronaut:micronaut-http-client-jdk")
     testImplementation("io.micronaut:micronaut-http-server-netty")
 }
