@@ -13,6 +13,8 @@ and this project adheres to [Pragmatic Versioning](https://pragver.github.io/spe
 
 - Switch **micronaut-serde-api** from `implementation` to `compileOnly`.
 - Switch **micronaut-serde-jackson** from `implementation` to `testImplementation`.
+- Bump **micronaut-aot** from 5.0.1 to 5.0.2.
+- Bump **micronaut-library** from 5.0.1 to 5.0.2.
 
 
 ## [1.1.0.0]
