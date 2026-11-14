@@ -75,11 +75,10 @@ class ResultDeserializerTest {
         // Then
         assertThat(result)
                 .extracting("success", OPTIONAL)
-                .hasValueSatisfying(
-                        x -> {
-                            assertThat(x).hasFieldOrPropertyWithValue("x", "SUCCESS");
-                            assertThat(x).hasFieldOrPropertyWithValue("y", 123);
-                        });
+                .hasValueSatisfying(x -> {
+                    assertThat(x).hasFieldOrPropertyWithValue("x", "SUCCESS");
+                    assertThat(x).hasFieldOrPropertyWithValue("y", 123);
+                });
     }
 
     @Test
@@ -153,10 +152,9 @@ class ResultDeserializerTest {
         // Then
         assertThat(result)
                 .extracting("success", OPTIONAL)
-                .hasValueSatisfying(
-                        s -> assertThat(s)
-                                .hasFieldOrPropertyWithValue("foo", List.of(1, 2, 3))
-                                .hasFieldOrPropertyWithValue("bar", true));
+                .hasValueSatisfying(s -> assertThat(s)
+                        .hasFieldOrPropertyWithValue("foo", List.of(1, 2, 3))
+                        .hasFieldOrPropertyWithValue("bar", true));
     }
 
     @Test
@@ -170,10 +168,9 @@ class ResultDeserializerTest {
         // Then
         assertThat(result)
                 .extracting("failure", OPTIONAL)
-                .hasValueSatisfying(
-                        f -> assertThat(f)
-                                .hasFieldOrPropertyWithValue("foo", 404L)
-                                .hasFieldOrPropertyWithValue("bar", null));
+                .hasValueSatisfying(f -> assertThat(f)
+                        .hasFieldOrPropertyWithValue("foo", 404L)
+                        .hasFieldOrPropertyWithValue("bar", null));
     }
 
     @Test

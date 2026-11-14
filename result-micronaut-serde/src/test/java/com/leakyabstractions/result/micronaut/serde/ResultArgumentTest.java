@@ -96,27 +96,25 @@ class ResultArgumentTest {
         assertThat(argument.hasTypeVariables()).isTrue();
         assertThat(argument.getTypeParameters()).hasSize(2);
         assertThat(argument.getTypeVariable(SUCCESS_NAME))
-                .hasValueSatisfying(
-                        s -> {
-                            assertThat(s).hasFieldOrPropertyWithValue("type", Map.class);
-                            assertThat(s.hasTypeVariables()).isTrue();
-                            assertThat(s.getTypeParameters()).hasSize(2);
-                            assertThat(s.getTypeVariable("K"))
-                                    .hasValueSatisfying(
-                                            k -> assertThat(k).hasFieldOrPropertyWithValue("type", String.class));
-                            assertThat(s.getTypeVariable("V"))
-                                    .hasValueSatisfying(
-                                            v -> assertThat(v).hasFieldOrPropertyWithValue("type", Object.class));
-                        });
+                .hasValueSatisfying(s -> {
+                    assertThat(s).hasFieldOrPropertyWithValue("type", Map.class);
+                    assertThat(s.hasTypeVariables()).isTrue();
+                    assertThat(s.getTypeParameters()).hasSize(2);
+                    assertThat(s.getTypeVariable("K"))
+                            .hasValueSatisfying(
+                                    k -> assertThat(k).hasFieldOrPropertyWithValue("type", String.class));
+                    assertThat(s.getTypeVariable("V"))
+                            .hasValueSatisfying(
+                                    v -> assertThat(v).hasFieldOrPropertyWithValue("type", Object.class));
+                });
         assertThat(argument.getTypeVariable(FAILURE_NAME))
-                .hasValueSatisfying(
-                        f -> {
-                            assertThat(f).hasFieldOrPropertyWithValue("type", List.class);
-                            assertThat(f.hasTypeVariables()).isTrue();
-                            assertThat(f.getTypeParameters()).hasSize(1);
-                            assertThat(f.getTypeVariable("E"))
-                                    .hasValueSatisfying(
-                                            k -> assertThat(k).hasFieldOrPropertyWithValue("type", Integer.class));
-                        });
+                .hasValueSatisfying(f -> {
+                    assertThat(f).hasFieldOrPropertyWithValue("type", List.class);
+                    assertThat(f.hasTypeVariables()).isTrue();
+                    assertThat(f.getTypeParameters()).hasSize(1);
+                    assertThat(f.getTypeVariable("E"))
+                            .hasValueSatisfying(
+                                    k -> assertThat(k).hasFieldOrPropertyWithValue("type", Integer.class));
+                });
     }
 }
