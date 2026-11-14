@@ -1,7 +1,7 @@
 [versions]
 aot-micronaut = "5.0.2"
 assertj = "3.27.7"
-google-java-format = "1.36.1"
+google-java-format = "2.0.0"
 jacoco = "0.8.15"
 japicmp = "0.4.6"
 junit = "6.1.3"
